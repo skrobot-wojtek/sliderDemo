@@ -29,13 +29,13 @@ public class SliderDemo implements ChangeListener {
         slider.setMajorTickSpacing(25);
 
         slider.setPaintLabels(true);
-        slider.setFont(new Font("MV Boli",Font.BOLD, 20));
+        slider.setFont(new Font("MV Boli", Font.BOLD, 20));
 
         slider.setOrientation(SwingConstants.VERTICAL);
 
-        label.setText("°C "+slider.getValue());
-        label.setFont(new Font("MV Boli",Font.BOLD, 25));
-
+        label.setText("°C " + slider.getValue());
+        label.setFont(new Font("MV Boli", Font.BOLD, 25));
+        
         slider.addChangeListener(this);
         panel.add(slider);
         panel.add(label);
@@ -46,6 +46,10 @@ public class SliderDemo implements ChangeListener {
 
     @Override
     public void stateChanged(ChangeEvent e) {
-        label.setText("°C "+slider.getValue());
+        label.setText("°C " + slider.getValue());
+        if (slider.getValue() <= 50) {
+            slider.setBackground(Color.blue);
+        } else slider.setBackground(Color.red);
+
     }
 }
